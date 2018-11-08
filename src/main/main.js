@@ -1,11 +1,11 @@
 const startButton = document.getElementById('startButton');
 const table = document.getElementById('table');
 const images = [
-    'src/resources/assets/images/cards/angular.png',
-    'src/resources/assets/images/cards/d3.png',
-    'src/resources/assets/images/cards/jenkins.png',
-    'src/resources/assets/images/cards/postcss.png',
-    'src/resources/assets/images/cards/react.png'
+    '../resources/assets/images/cards/angular.png',
+    '../resources/assets/images/cards/d3.png',
+    '../resources/assets/images/cards/jenkins.png',
+    '../resources/assets/images/cards/postcss.png',
+    '../resources/assets/images/cards/react.png'
 ];
 const cards = [];
 
