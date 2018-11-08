@@ -1,3 +1,13 @@
+body {
+    background-size: auto;
+    background: rgba(211, 211, 211, 0.17) url('../resources/assets/images/supercharge-logo.svg') no-repeat;
+}
+
 nav {
     background-color: black;
+    color: azure;
+}
+
+.cards {
+    
 }
