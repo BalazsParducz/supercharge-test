@@ -9,24 +9,34 @@ const images = [
 ];
 const cards = [];
 
-function makeCard(imagePath){
-    const cardElem = document.createElement('img');
-    cardElem.setAttribute('src', imagePath);
-    cardElem.setAttribute('class', 'cards');
-    return cardElem;
+function drawCardImage(imagePath){
+    const cardImage = document.createElement('img');
+    cardImage.setAttribute('src', imagePath);
+    return cardImage;
 }
 
 function generateCards() {
     for(let image in images) {
-        cards.push(makeCard(image));
-        cards.push(makeCard(image))
+        cards.push(drawCardImage(image));
     }
+}
+
+function addSet(cards) {
+    for(let i=0; i<cards.length; i++) {
+        const newSet = document.createElement('div');
+        let card = cards[i];
+        newSet.setAttribute('id', i.toString());
+        newSet.setAttribute('class', 'cards');
+        newSet.innerHTML.concat(card);
+    }
+    return newSet;
 }
 
 
 const game = {
     start(){
         generateCards();
+        table.appendChild(addSet());
     }
 };
 
