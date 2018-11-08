@@ -1,15 +1,15 @@
 const startButton = document.getElementById('startButton');
 const table = document.getElementById('table');
 const images = [
-    '../resources/assets/images/cards/angular.png',
-    '../resources/assets/images/cards/d3.png',
-    '../resources/assets/images/cards/jenkins.png',
-    '../resources/assets/images/cards/postcss.png',
-    '../resources/assets/images/cards/react.png'
+    '/src/resources/assets/images/cards/angular.png',
+    '/src/resources/assets/images/cards/d3.png',
+    '/src/resources/assets/images/cards/jenkins.png',
+    '/src/resources/assets/images/cards/postcss.png',
+    '/src/resources/assets/images/cards/react.png'
 ];
 const cards = [];
 
-function drawCardImage(imagePath){
+function createImageAttribute(imagePath){
     const cardImage = document.createElement('img');
     cardImage.setAttribute('src', imagePath);
     return cardImage;
@@ -17,26 +17,25 @@ function drawCardImage(imagePath){
 
 function generateCards() {
     for(let image in images) {
-        cards.push(drawCardImage(image));
+        cards.push(createImageAttribute(image));
     }
 }
 
 function addSet(cards) {
     for(let i=0; i<cards.length; i++) {
-        const newSet = document.createElement('div');
-        let card = cards[i];
-        newSet.setAttribute('id', i.toString());
-        newSet.setAttribute('class', 'cards');
-        newSet.innerHTML.concat(card);
+        const newCardDiv = document.createElement('div');
+        const card = cards[i];
+        newCardDiv.setAttribute('id', i.toString());
+        newCardDiv.setAttribute('class', 'cards');
+        newCardDiv.appendChild(card);
+        table.appendChild(newCardDiv);
     }
-    return newSet;
 }
-
 
 const game = {
     start(){
         generateCards();
-        table.appendChild(addSet());
+        addSet(cards);
     }
 };
 
